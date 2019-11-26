@@ -15,12 +15,7 @@ fn base64decode(input: String) -> String {
                 'A' ..= 'Z' => ascii + UPPERCASE_OFFSET,
                 '+' => 62,
                 '/' => 63,
-                ','..='.' => ascii, 
-                ':'..='@' => ascii,
-                '\u{0}'..='*' => ascii,
-                '['..='`' => ascii,
-                '{'..='\u{d7ff}' => ascii,
-                '\u{e000}'..='\u{10ffff}' => ascii
+                _ => ascii
             };
             format!("{:#08b}", convert)[2..].to_string()        //convert indices to binary format and remove the two first digits
         })
