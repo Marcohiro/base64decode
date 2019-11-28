@@ -13,9 +13,7 @@ fn base64decode(input: String) -> String {
                 '0' ..= '9' => ascii + NUM_OFFSET,
                 'a' ..= 'z' => ascii + LOWERCASE_OFFSET,
                 'A' ..= 'Z' => ascii + UPPERCASE_OFFSET,
-                '+' => 62,
-                '/' => 63,
-                _ => ascii
+                _ => ascii,
             };
             format!("{:#08b}", convert)[2..].to_string()        //convert indices to binary format and remove the two first digits
         })
